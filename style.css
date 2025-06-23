@@ -1,0 +1,286 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Tela de abertura */
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.intro-text {
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
+    color: #c0c0c0;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 3s forwards, slideUp 2s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+/* Menu de três pontos */
+.menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.dot {
+    display: block;
+    width: 12px;
+    height: 12px;
+    margin: 6px 0;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+/* Container principal */
+.container {
+    width: 80px;
+    height: 80px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #b20202a3;
+}
+
+.content {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 14px 18px rgba(0, 0, 0, 0.4);
+    width: 370px;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #c0c0c0;
+}
+
+/* Botões de redes sociais */
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.social-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    text-decoration: none;
+    color: #c0c0c0;
+    background: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+}
+
+.social-buttons a:hover {
+    background: #444;
+    transform: scale(1.05);
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+
+/* Barra de rolagem personalizada para div rolável */
+.social-buttons::-webkit-scrollbar {
+    width: 8px;
+}
+
+.social-buttons::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 4px;
+}
+
+.social-buttons::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.social-buttons::-webkit-scrollbar-track {
+    background-color: #1a1a1a;
+}
+
+/* Página Spotify */
+.spotify-page {
+    display: none; /* Inicialmente escondida */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spotify-content {
+    background-color: #1DB954;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+.search-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+#search-bar {
+    width: 70%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+}
+
+#search-button {
+    background-color: #fff;
+    border: none;
+    color: #1DB954;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#music-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.music-item {
+    width: 200px;
+    background-color: #282828;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    color: #fff;
+}
+
+.music-item img {
+    width: 100%;
+}
+
+.music-info {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Botão no centro da imagem */
+.music-item button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1DB954;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+    display: block;
+}
+
+/* Animações do botão */
+.music-item button.success {
+    background-color: #4caf50;
+    color: #fff;
+    transform: scale(1.2);
+}
+
+.music-item button.error {
+    background-color: #f44336;
+    color: #fff;
+    transform: scale(1.2);
+}
+
+/* Botão da loja */
+.shop-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #1db954;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.shop-button:hover {
+    background-color: #1ed75f41;
+    transform: scale(1.1);
+}
